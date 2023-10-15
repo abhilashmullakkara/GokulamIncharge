@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "725244865764",
+    "project_id": "dualfirebasetest-3fd0a",
+    "storage_bucket": "dualfirebasetest-3fd0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725244865764:android:782c51ce9c324f381990f1",
+        "android_client_info": {
+          "package_name": "com.example.dualfirebasetest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUz7Gg2XPhl-hrVk_pmzr5Ob3GQkyVukY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
