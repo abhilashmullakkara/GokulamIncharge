@@ -7,28 +7,24 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -38,10 +34,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.gokulamincharge.ui.theme.GokulamInchargeTheme
-import com.example.gokulamincharge.ui.theme.ward.Ward
-import com.example.gokulamincharge.ui.theme.ward.readData
-import java.util.Date
+import com.example.gokulamincharge.ui.theme.ward.MyApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,10 +46,9 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = Color(0xFFB5E0AC)
                 ) {
-                   // Greeting()
-					readData()
+					MyApp()
                 }
             }
         }
@@ -64,7 +58,7 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Greeting() {
+fun WhatsApp(navController: NavController) {
     Surface(
         // on below line we are specifying modifier and color for our app
         modifier = Modifier.fillMaxSize(), color = Color(0xFF41B79A)
@@ -107,7 +101,7 @@ fun Greeting() {
             }) {
             // on below line we are calling connection information
             // method to display UI
-            //SendWhatsAppMessage(context = LocalContext.current)
+            SendWhatsAppMessage(context = LocalContext.current,navController)
 
         }
     }
@@ -122,12 +116,13 @@ fun Greeting() {
 @Composable
 fun GreetingPreview() {
     GokulamInchargeTheme {
-        Greeting()
+       //Greeting()
+		//readData()
     }
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SendWhatsAppMessage(context: Context) {
+fun SendWhatsAppMessage(context: Context,navController: NavController) {
 	Surface(color=Color(0xFF6776CA),modifier=Modifier.fillMaxSize()) {
 
 	val phoneNumber = remember {
@@ -179,6 +174,18 @@ fun SendWhatsAppMessage(context: Context) {
 		) {
 			Text(text = "Send Message on WhatsApp")
 		}
+		Spacer(modifier = Modifier.height(20.dp))
+		TextButton(onClick = {
+			navController.popBackStack("OpeningWindow",inclusive = false)
+		},
+			colors = ButtonDefaults.buttonColors(Color(0xFF283593))
+			) {
+			Text("BACK",color= Color.White, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
+
+		}
 	}
 }
 }
+
+
+

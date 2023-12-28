@@ -1,6 +1,13 @@
 package com.example.gokulamincharge.ui.theme.ward
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+
 data class Ward (
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0,
     var generalMedicine:String="",
     var sixJn :String="0",
     var m1:String="0",
@@ -20,7 +27,10 @@ data class Ward (
     val micu:String="0",
 
     )
+@Entity
 data class Pedi (
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0,
     var pediatric:String="",
     var sixCn :String="0",
     var p1:String="0",
@@ -33,7 +43,10 @@ data class Pedi (
     val obn:String="0"
 
     )
-data class dermet(
+@Entity
+data class Dermet(
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0,
     var dermet:String="0",
     var oneBn:String="0"
 )
